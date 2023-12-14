@@ -3,10 +3,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const newToken = (user) => {
-  return jwt.sign({ user }, process.env.JWT_SECRET_KEY);
-};
-
 const registerUser = async (req, res) => {
   const { name, email, password, userType, address, number } = req.body;
 
@@ -43,7 +39,6 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await UserModel.findOne({ email });
-    const token = newToken(user);
 
     if (!user) {
       return res.status(400).json({ msg: "User not found" });
