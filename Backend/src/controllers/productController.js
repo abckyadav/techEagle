@@ -7,7 +7,7 @@ const getAllProducts = async (req, res) => {
   } catch (error) {
     return res
       .status(400)
-      .json({ msg: "Error in getAllProducts", error: err.message });
+      .json({ msg: "Error in getAllProducts", error: error.message });
   }
 };
 
@@ -32,7 +32,7 @@ const addProduct = async (req, res) => {
   } catch (error) {
     return res
       .status(400)
-      .json({ msg: "Error in addProduct", error: err.message });
+      .json({ msg: "Error in addProduct", error: error.message });
   }
 };
 
@@ -51,7 +51,7 @@ const updateProduct = async (req, res) => {
   } catch (error) {
     return res
       .status(400)
-      .json({ msg: "Error in addProduct", error: err.message });
+      .json({ msg: "Error in addProduct", error: error.message });
   }
 };
 
@@ -66,7 +66,7 @@ const deleteProduct = async (req, res) => {
   } catch (error) {
     return res
       .status(400)
-      .json({ msg: "Error in addProduct", error: err.message });
+      .json({ msg: "Error in addProduct", error: error.message });
   }
 };
 
