@@ -1,14 +1,15 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const UserModel = require("../models/userModel");
 
-const checkManager = (req, res, next) => {
+const authorisation = async (req, res, next) => {
   try {
     const authHeader = req.headers.Authorization || req.headers.authorization;
     if (authHeader !== undefined && authHeader.startsWith("Bearer")) {
       const token = authHeader.split(" ")[1];
       jwt.verify(token, process.env.JWT_SECRET_KEY, (error, decoded) => {
         console.log("decoded:", decoded.userType);
-        if (decoded.userType === "manager") {
+        if (decoded.userType !== "manager") {
           next();
         } else {
           return res
@@ -27,4 +28,4 @@ const checkManager = (req, res, next) => {
   }
 };
 
-module.exports = checkManager;
+module.exports = authorisation;
