@@ -24,6 +24,7 @@ app.listen(PORT, async () => {
   try {
     await connectDB();
     console.log(`listening on ${PORT}`);
+    return res.status(200).json({ msg: `listening on ${PORT}` });
   } catch (error) {
     console.log("error", error.message);
   }
