@@ -20,7 +20,7 @@ app.use("/product", productRouter);
 app.use("/cart", cartRouter);
 
 //server setup
-app.listen(PORT, async () => {
+app.listen(PORT, async (req, res) => {
   try {
     await connectDB();
     console.log(`listening on ${PORT}`);
