@@ -15,16 +15,18 @@ const productRouter = require("./src/routes/productRoutes");
 const cartRouter = require("./src/routes/cartRoutes");
 
 //router routes
+app.use("/", async (req, res) => {
+  return res.status(200).json({ msg: `Backend working fine` });
+});
 app.use("/user", userRouter);
 app.use("/product", productRouter);
 app.use("/cart", cartRouter);
 
 //server setup
-app.listen(PORT, async (req, res) => {
+app.listen(PORT, async () => {
   try {
     await connectDB();
     console.log(`listening on ${PORT}`);
-    return res.status(200).json({ msg: `listening on ${PORT}` });
   } catch (error) {
     console.log("error", error.message);
   }
