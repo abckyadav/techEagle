@@ -1,8 +1,8 @@
-## TechEagle Assignment
+# TechEagle Assignment
 
-# Deployed Link - https://tech-eagle-phi.vercel.app/
+## Deployed Link - https://tech-eagle-phi.vercel.app/
 
-# React + Vite
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
